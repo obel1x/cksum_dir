@@ -1,8 +1,7 @@
-# Shell-Script: cksum_dir.sh
-Shell Script: Checksum all Files into Logfile and later Compare the Checksums of older checks
+# Shellscript: cksum_dir.sh
+Objective/Scope: Fast mass verification of file integrity by calculating the checksums of all Files and compare them afterwards.
 
-Objective/Scope
-I once came to a point, where i had many Files beeing copied over unstable lines. I wouldn't even trust Filesizes to reflect if the files were copied accurately.
+User Story: I once came to a point, where i had many Files beeing copied over unstable lines. I wouldn't even trust Filesizes to reflect if the files were copied accurately.
 So i searched for a fast way to compare if the Files were really copied the right way for Linux - checking it Bit for Bit afterwards. As i didn't want to copy the data over and over again for comparision, i wrote this script, which does the cecking for me. Here is a brief description how i used it for better understanding:
 
 1. First run the script in the directory that will be copied. It will create a Logfile and store the checksums of each file in it.
