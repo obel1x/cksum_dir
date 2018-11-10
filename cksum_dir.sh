@@ -34,7 +34,7 @@ echo "CKSUM of Sourcedirectory (Listing): "$cksumout>$outfile
 #now fetch all files...
 echo "Fetching whole Filelist of Directory including Subdirs. Please be patient."
 #create filelist in new file - needed while loop otherwise will not return anything back to this script (e.g. counters)
-outpipe=$logdir"/cksum_filelist.tmp"
+outpipe=$logdir"/cksum_filelist_$datestr.tmp"
 find . -type f -not -path "./.cksum/*" -print0 | sort -z > $outpipe
 counter=0;
 while IFS= read -r -d $'\0' f; do
@@ -53,7 +53,7 @@ echo "Done CKSUMMing Files to Logfile."
 #we are done if no compare arg $1 is given
 if [ $1 ] ; then
 	echo "Now comparing current Logfile with $1. Each changed File will result in a single Line."
-	diff $logdir"/"$1 $outfile
+	diff $logdir"/"$1 $outfile | grep "[>,<]"
 fi;
 echo "End of $0. You may delete Directory $logdir if not needed any more."
 echo "==="
