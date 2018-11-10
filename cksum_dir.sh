@@ -35,7 +35,7 @@ echo "CKSUM of Sourcedirectory (Listing): "$cksumout>$outfile
 echo "Fetching whole Filelist of Directory including Subdirs. Please be patient."
 #create filelist in new file - needed while loop otherwise will not return anything back to this script (e.g. counters)
 outpipe=$logdir"/cksum_filelist.tmp"
-find . -type f -not -path "./.cksum/*" -print0 > $outpipe
+find . -type f -not -path "./.cksum/*" -print0 | sort -z > $outpipe
 counter=0;
 while IFS= read -r -d $'\0' f; do
 	counter=$(($counter + 1));
