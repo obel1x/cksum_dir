@@ -15,7 +15,11 @@ Result: If anywhere in the Files there is a diffent content - and may it only be
 So you can even detect changed files if there should by no changes at all.
 
 Requirements
-Software: cksum, find ans other standard Linux-cmds
+Software:
+cksum
+find
+sort supporting "-z" option
+and other standard Linux-commands
 
 The script is POSIX conform, so let it run as shell script.
 
